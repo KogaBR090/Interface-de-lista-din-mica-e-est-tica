@@ -1,4 +1,4 @@
-public class ListaDinamica {
+public class ListaDinamica implements ListaOperacoes{
     No inicio;
 
     public ListaDinamica() {
@@ -60,12 +60,12 @@ public class ListaDinamica {
                 else if(this.inicio.getProx() != null) {
                     No aux = this.inicio;
                     while(aux != null) {
-                        if (this.inicio.getConteudo().equals(elemento)) {
+                        if (this.inicio.getConteudo().equalsIgnoreCase(elemento)) {
                             System.out.println("Elemento " + elemento + " removido!");
                             this.inicio = this.inicio.getProx();
                             return;
-                        } else if(aux.getProx().getConteudo().equals(elemento)) {
-                            System.out.println("Elemento + " + elemento + " removido!");
+                        } else if(aux.getProx().getConteudo().equalsIgnoreCase(elemento)) {
+                            System.out.println("Elemento " + elemento + " removido!");
                             aux.setProx(aux.getProx().getProx());
                             return;
                         }
@@ -82,7 +82,7 @@ public class ListaDinamica {
         } else {
             No aux = this.inicio;
             while(aux != null) {
-                if(aux.getConteudo().equals(elemento)) {
+                if(aux.getConteudo().equalsIgnoreCase(elemento)) {
                     System.out.println("Elemento " + elemento + " encontrado!");
                     return true;
                 }
@@ -91,5 +91,27 @@ public class ListaDinamica {
             System.out.println("Elemento " + elemento + " não existe na lista.");
         }
         return false;
+    }
+
+    @Override
+    public int removerTodas(String elemento) {
+        int quantidade = 0;
+
+        No aux = this.inicio;
+        while(aux != null) {
+            if(procurarElemento(elemento)){
+                quantidade = quantidade + 1;
+                removerElemento(elemento);
+            } else {
+                return quantidade;
+            }
+            aux = aux.getProx();
+        }
+        return quantidade;
+    }
+
+    @Override
+    public int contar() {
+        return 0;
     }
 }
