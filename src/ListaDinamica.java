@@ -100,7 +100,7 @@ public class ListaDinamica implements ListaOperacoes{
         No aux = this.inicio;
         while(aux != null) {
             if(procurarElemento(elemento)){
-                quantidade = quantidade + 1;
+                quantidade += 1;
                 removerElemento(elemento);
             } else {
                 return quantidade;
@@ -112,6 +112,12 @@ public class ListaDinamica implements ListaOperacoes{
 
     @Override
     public int contar() {
-        return 0;
+        int cont = 0;
+        No aux = this.inicio;
+        while(aux != null) {
+         cont += 1;
+         aux = aux.getProx();
+        }
+        return cont;
     }
 }

@@ -7,5 +7,6 @@ public class MainListaDinamica {
         listaDinamica.adicionarElemento("Alho");
         listaDinamica.adicionarElemento("Cebola");
         System.out.println(listaDinamica.removerTodas("alho"));
+        System.out.println(listaDinamica.contar());
     }
 }
