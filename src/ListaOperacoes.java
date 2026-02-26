@@ -5,4 +5,6 @@ public interface ListaOperacoes {
     int contar();
 
     int adicionarVarios(String[] elementos);
+
+    String obter(int indice);
 }

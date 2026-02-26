@@ -137,4 +137,17 @@ public class ListaDinamica implements ListaOperacoes{
         }
         return cont;
     }
+
+    @Override
+    public String obter(int indice) {
+        No aux = this.inicio;
+        for(int i = 1; i < indice; i++) {
+            aux = aux.getProx();
+            if(aux == null){
+                System.out.println("Este indice não existe na lista, recomendado que verifique o tamanho.");
+                return "";
+            }
+        }
+        return aux.getConteudo();
+    }
 }
