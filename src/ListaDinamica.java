@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class ListaDinamica implements ListaOperacoes{
     No inicio;
 
@@ -100,7 +102,7 @@ public class ListaDinamica implements ListaOperacoes{
         No aux = this.inicio;
         while(aux != null) {
             if(procurarElemento(elemento)){
-                quantidade = quantidade + 1;
+                quantidade += 1;
                 removerElemento(elemento);
             } else {
                 return quantidade;
@@ -112,6 +114,27 @@ public class ListaDinamica implements ListaOperacoes{
 
     @Override
     public int contar() {
-        return 0;
+        int cont = 0;
+        No aux = this.inicio;
+        while(aux != null) {
+         cont += 1;
+         aux = aux.getProx();
+        }
+        return cont;
+    }
+
+    @Override
+    public int adicionarVarios(String[] elementos) {
+        int cont = 0;
+
+        for (int i = 0; i < elementos.length; i++){
+            if(elementos[i].getClass().equals(String.class)){
+                adicionarElemento(elementos[i]);
+                cont += 1;
+            } else {
+                System.out.println("Não foi possivel adicionar o elemento " + elementos[i] + " pois nao esta de acordo com o padrão");
+            }
+        }
+        return cont;
     }
 }
