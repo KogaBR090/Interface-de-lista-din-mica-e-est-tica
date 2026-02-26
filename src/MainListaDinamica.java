@@ -12,5 +12,6 @@ public class MainListaDinamica {
         System.out.println(listaDinamica.removerTodas("alho"));
         System.out.println("Existem " + listaDinamica.contar() + " elementos");
         System.out.println("Foram adicionados " + listaDinamica.adicionarVarios(elementos) + " elementos");
+        System.out.println(listaDinamica.obter(1));
     }
 }

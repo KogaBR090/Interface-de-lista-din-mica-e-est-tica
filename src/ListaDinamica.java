@@ -137,4 +137,13 @@ public class ListaDinamica implements ListaOperacoes{
         }
         return cont;
     }
+
+    @Override
+    public String obter(int indice) {
+        No aux = this.inicio;
+        for(int i = 1; i < indice; i++) {
+            aux = aux.getProx();
+        }
+        return aux.getConteudo();
+    }
 }
