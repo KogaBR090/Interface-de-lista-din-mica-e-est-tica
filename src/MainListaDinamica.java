@@ -1,3 +1,14 @@
+/**
+ * Classe principal da estrutura {@code ListaDinamica}, denominada MainListaDinamica.
+ * É responsável por iniciar a aplicação e testar as operações definidas
+ * na Interface {@code ListaOperacoes}.
+ *
+ * <p>Esta classe implementa métodos fundamentais para manipulação da lista,
+ * como adicionar, remover, buscar e exibir elementos. Além disso, disponibiliza
+ * métodos auxiliares, incluindo: removerTodas, contar, adicionarVarios, obter,
+ * inserir, removerPorIndice, limpar, ultimoIndiceDe, contarOcorrencias e
+ * substituir.</p>
+ */
 public class MainListaDinamica {
     public static void main(String[] args) {
 

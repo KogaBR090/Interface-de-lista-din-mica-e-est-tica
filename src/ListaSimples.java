@@ -68,7 +68,7 @@ public class ListaSimples implements ListaOperacoes {
         boolean encontrado = false;
         if(!estaVazia()) {
             for (int i = 0; i < this.lista.length; i++) {
-                if(this.lista[i] != null && this.lista[i].equals(elemento)) {
+                if(this.lista[i] != null && this.lista[i] == elemento) {
                     encontrado = true;
                 }
             }
@@ -83,7 +83,7 @@ public class ListaSimples implements ListaOperacoes {
     @Override
     public int removerTodas(String elemento) {
         for(int i = 0; i < this.lista.length; i++) {
-            if(this.lista[i].equals(elemento)) {
+            if(this.lista[i] == elemento) {
                 this.lista[i] = null;
             }
         }
@@ -124,6 +124,11 @@ public class ListaSimples implements ListaOperacoes {
         if (indice < 0 || indice >= this.lista.length) {
             return null;
         }
+        if (this.lista[indice] == null) {
+            System.out.println("O elemento no índice " + indice + " se encontra nulo!");
+        } else {
+            System.out.println("O elemento " + this.lista[indice] + " se encontra na posição: " + indice);
+        }
         return this.lista[indice];
     }
 
@@ -139,6 +144,7 @@ public class ListaSimples implements ListaOperacoes {
         }
 
         this.lista[indice] = elemento;
+        System.out.println("O elemento " + elemento + " foi adicionado com sucesso na posição: " + indice);
         return true;
     }
 
@@ -146,6 +152,8 @@ public class ListaSimples implements ListaOperacoes {
     public String removerPorIndice(int indice) {
         for(int i = 0; i < this.lista.length; i++) {
             if(i == indice) {
+                System.out.println("O elemento " + this.lista[indice] + " que se encontra no índice: " + indice +
+                        ", foi removido com sucesso!");
                 this.lista[i] = null;
             }
         }
@@ -166,7 +174,7 @@ public class ListaSimples implements ListaOperacoes {
     public int ultimoIndiceDe(String elemento) {
         int cont = 0;
         for(int i = 0; i < this.lista.length; i++) {
-            if(this.lista[i].equals(elemento)) {
+            if(this.lista[i] == elemento) {
                 cont += 1;
             }
         }
@@ -178,21 +186,22 @@ public class ListaSimples implements ListaOperacoes {
     public int contarOcorrencias(String elemento) {
         int cont = 0;
         for(int i = 0; i < this.lista.length; i++) {
-            if(this.lista[i].equals(elemento)) {
+            if(this.lista[i] == elemento) {
                 cont += 1;
             }
         }
-        System.out.println("O elemento aparece " + cont + " vez(es) na lista ");
+        System.out.println("O elemento " + elemento + " aparece " + cont + " vez(es) na lista ");
         return 0;
     }
 
     @Override
     public int substituir(String antigo, String novo) {
         for(int i = 0; i < this.lista.length; i++) {
-            if(this.lista[i].equals(antigo)) {
+            if(this.lista[i] == antigo) {
                 this.lista[i] = novo;
             }
         }
+        System.out.println("O elemento " + antigo + " foi substituído com sucesso pelo elemento: " + novo);
         return 0;
     }
 }
