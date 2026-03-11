@@ -22,5 +22,7 @@ public class MainListaDinamica {
         listaDinamica.inserir(1,"sla");
         listaDinamica.exibir();
         System.out.println("==================================================");
+        listaDinamica.removerPorIndice(2);
+        System.out.println("==================================================");
     }
 }

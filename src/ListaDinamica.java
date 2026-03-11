@@ -49,6 +49,12 @@ public class ListaDinamica implements ListaOperacoes {
     }
 
     public void removerElemento(String elemento) {
+
+        // Verifica se o elemento passado não é null ou vazio
+        if (elemento == null || elemento.trim().isEmpty()) {
+            System.out.println("Elemento não pode ser nulo ou vazio.");
+        }
+
         if (inicioEstaVazio()) {
             System.out.println("Não há elementos a serem removidos.");
         } else {
@@ -79,6 +85,14 @@ public class ListaDinamica implements ListaOperacoes {
     }
 
     public boolean procurarElemento(String elemento) {
+
+        // Verifica se o elemento passado nao é null ou vazio
+        if (elemento == null || elemento.trim().isEmpty()) {
+            System.out.println("Elemento não pode ser nulo ou vazio.");
+            return false;
+        }
+
+        // Verifica se a lista esta vazia
         if (inicioEstaVazio()) {
             System.out.println("Não há elementos a serem procurados.");
         } else {
@@ -141,11 +155,13 @@ public class ListaDinamica implements ListaOperacoes {
     @Override
     public String obter(int indice) {
 
+        // Tratamento para indice menor que 1.
         if(indice < 1){
             System.out.println("Indice deve ser maior que 0.");
             return null;
         }
 
+        // Tratamento para lista vazia
         if(inicioEstaVazio()){
             System.out.println("Lista vazia.");
             return null;
@@ -177,6 +193,7 @@ public class ListaDinamica implements ListaOperacoes {
             return false;
         }
 
+        // Tratamento casa esteja vazia e caso for o primeior indice ja inicia aloca corretamente
         if (inicioEstaVazio()) {
             if (indice == 1) {
                 this.inicio.setConteudo(elemento);
@@ -217,7 +234,11 @@ public class ListaDinamica implements ListaOperacoes {
 
     @Override
     public String removerPorIndice(int indice) {
-        return "";
+        removerElemento(obter(indice));
+        if(obter(indice) != null){
+            return obter(indice);
+        }
+        return null;
     }
 
     @Override
