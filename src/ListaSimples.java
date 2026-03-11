@@ -172,14 +172,14 @@ public class ListaSimples implements ListaOperacoes {
 
     @Override
     public int ultimoIndiceDe(String elemento) {
-        int cont = 0;
-        for(int i = 0; i < this.lista.length; i++) {
-            if(this.lista[i] == elemento) {
-                cont += 1;
+        int ultimoIndice = -1;
+        for (int i = 0; i < this.lista.length; i++) {
+            if (this.lista[i] != null && this.lista[i].equals(elemento)) {
+                ultimoIndice = i;
             }
         }
-        System.out.println("A quantidade de vezes que o elemento aparece é: " + cont);
-        return 0;
+        System.out.println("O índice do último elemento " + elemento + " se encontra na posição: " + ultimoIndice);
+        return ultimoIndice;
     }
 
     @Override
@@ -196,12 +196,15 @@ public class ListaSimples implements ListaOperacoes {
 
     @Override
     public int substituir(String antigo, String novo) {
+        int cont = 0;
         for(int i = 0; i < this.lista.length; i++) {
             if(this.lista[i] == antigo) {
                 this.lista[i] = novo;
+                cont += 1;
             }
         }
-        System.out.println("O elemento " + antigo + " foi substituído com sucesso pelo elemento: " + novo);
+        System.out.println("O elemento " + antigo + " foi substituído com sucesso pelo elemento: " + novo +
+                " (" + cont + " vezes)");
         return 0;
     }
 }

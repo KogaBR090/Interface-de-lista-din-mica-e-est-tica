@@ -48,7 +48,7 @@ public class MainListaSimples {
 
         //Teste 4 - obter
         listaSimples.obter(5);
-        listaSimples.obter(8);
+        listaSimples.obter(8); //Teste no elemento nulo
         System.out.println("-----------------------------");
 
         //Teste 5 - inserir
@@ -69,10 +69,10 @@ public class MainListaSimples {
         listaSimples.exibirElementos();
         System.out.println("-----------------------------");
 
-        //Teste 8 - ultimoIndiceDe (precisa arrumar!)
+        //Teste 8 - ultimoIndiceDe
         listaSimples.ultimoIndiceDe("Esponja"); //Retorno esperado = -1
         listaSimples.adicionarVarios(vetor); //Adicionando vários elementos só para conseguir testar a função
-        listaSimples.adicionarElemento("Esponja"); //Adicionando o elemento duplicado pra ver se funciona pegar o último índice
+        listaSimples.adicionarElemento("Esponja");//Adicionando o elemento duplicado pra ver se funciona pegar o último índice
         listaSimples.exibirElementos();
         listaSimples.ultimoIndiceDe("Esponja");
         System.out.println("-----------------------------");
@@ -85,7 +85,7 @@ public class MainListaSimples {
 
         //Teste 10 - substituir (precisa arrumar!)
         listaSimples.substituir("Esponja", "Carne");
-        listaSimples.substituir("Pêra", "Laranja"); //Retorno esperado = não dê para substituir
+        listaSimples.substituir("Pêra", "Laranja"); //Retorno esperado = não dê para substituir, pois não existe
         listaSimples.exibirElementos();
 
     }
