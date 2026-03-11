@@ -82,12 +82,14 @@ public class ListaSimples implements ListaOperacoes {
 
     @Override
     public int removerTodas(String elemento) {
+        int cont = 0;
         for(int i = 0; i < this.lista.length; i++) {
             if(this.lista[i] == elemento) {
                 this.lista[i] = null;
+                cont++;
             }
         }
-        System.out.println("Todos os elementos " + elemento + " foram removidos.");
+        System.out.println("Todos os elementos " + elemento + " foram removidos. Quantidade: " + cont);
         return 0;
     }
 
@@ -115,7 +117,7 @@ public class ListaSimples implements ListaOperacoes {
                 break;
             }
         }
-
+        System.out.println("Quantidade de elementos que foram adicionados na lista: " +  adicionados);
         return adicionados;
     }
 
@@ -151,7 +153,7 @@ public class ListaSimples implements ListaOperacoes {
     @Override
     public String removerPorIndice(int indice) {
         for(int i = 0; i < this.lista.length; i++) {
-            if(i == indice) {
+            if(i == indice && this.lista[i] != null) {
                 System.out.println("O elemento " + this.lista[indice] + " que se encontra no índice: " + indice +
                         ", foi removido com sucesso!");
                 this.lista[i] = null;

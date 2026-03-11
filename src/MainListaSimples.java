@@ -61,6 +61,7 @@ public class MainListaSimples {
 
         //Teste 6 - removerPorIndice
         listaSimples.removerPorIndice(2);
+        listaSimples.removerPorIndice(2); //Retorno esperado = null
         listaSimples.exibirElementos();
         System.out.println("-----------------------------");
 
@@ -83,7 +84,7 @@ public class MainListaSimples {
         listaSimples.contarOcorrencias("Abacaxi"); //Retorno esperado = não existe/aparece nenhuma vez
         System.out.println("-----------------------------");
 
-        //Teste 10 - substituir (precisa arrumar!)
+        //Teste 10 - substituir
         listaSimples.substituir("Esponja", "Carne");
         listaSimples.substituir("Pêra", "Laranja"); //Retorno esperado = não dê para substituir, pois não existe
         listaSimples.exibirElementos();
