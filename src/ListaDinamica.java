@@ -10,6 +10,11 @@ public class ListaDinamica implements ListaOperacoes {
 
     public void adicionarElemento(String elemento) {
 
+        if (elemento == null || elemento.trim().isEmpty()) {
+            System.out.println("Elemento inválido.");
+            return;
+        }
+
         if (inicioEstaVazio()) {
             this.inicio.setConteudo(elemento);
         } else {
@@ -53,6 +58,7 @@ public class ListaDinamica implements ListaOperacoes {
         // Verifica se o elemento passado não é null ou vazio
         if (elemento == null || elemento.trim().isEmpty()) {
             System.out.println("Elemento não pode ser nulo ou vazio.");
+            return;
         }
 
         if (inicioEstaVazio()) {
@@ -95,6 +101,7 @@ public class ListaDinamica implements ListaOperacoes {
         // Verifica se a lista esta vazia
         if (inicioEstaVazio()) {
             System.out.println("Não há elementos a serem procurados.");
+            return false;
         } else {
             No aux = this.inicio;
             while (aux != null) {
@@ -116,8 +123,8 @@ public class ListaDinamica implements ListaOperacoes {
         No aux = this.inicio;
         while (aux != null) {
             if (procurarElemento(elemento)) {
-                quantidade += 1;
                 removerElemento(elemento);
+                quantidade += 1;
             } else {
                 return quantidade;
             }
@@ -130,7 +137,7 @@ public class ListaDinamica implements ListaOperacoes {
     public int contar() {
         int cont = 0;
         No aux = this.inicio;
-        while (aux != null) {
+        while (aux != null && aux.getConteudo() != null) {
             cont += 1;
             aux = aux.getProx();
         }
@@ -142,7 +149,7 @@ public class ListaDinamica implements ListaOperacoes {
         int cont = 0;
 
         for (int i = 0; i < elementos.length; i++) {
-            if (elementos[i].getClass().equals(String.class)) {
+            if (elementos[i] != null && !elementos[i].trim().isEmpty()) {
                 adicionarElemento(elementos[i]);
                 cont += 1;
             } else {
@@ -234,11 +241,11 @@ public class ListaDinamica implements ListaOperacoes {
 
     @Override
     public String removerPorIndice(int indice) {
-        removerElemento(obter(indice));
-        if(obter(indice) != null){
-            return obter(indice);
+        String valor = obter(indice);
+        if(valor != null){
+            removerElemento(valor);
         }
-        return null;
+        return valor;
     }
 
     @Override
