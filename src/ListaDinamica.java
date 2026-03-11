@@ -249,16 +249,82 @@ public class ListaDinamica implements ListaOperacoes {
 
     @Override
     public int ultimoIndiceDe(String elemento) {
-        return 0;
+
+        if (elemento == null || elemento.trim().isEmpty()) {
+            System.out.println("Elemento não pode ser nulo ou vazio.");
+            return -1;
+        }
+        if (inicioEstaVazio()) {
+            return -1;
+        }
+
+        int ultimoIndice = -1;
+        int indiceAtual = 1;
+        No aux = this.inicio;
+
+        while (aux != null) {
+            if (aux.getConteudo().equalsIgnoreCase(elemento)) {
+                ultimoIndice = indiceAtual;
+            }
+            aux = aux.getProx();
+            indiceAtual++;
+        }
+        return ultimoIndice;
     }
 
     @Override
     public int contarOcorrencias(String elemento) {
-        return 0;
+
+        if (elemento == null || elemento.trim().isEmpty()) {
+            System.out.println("Elemento não pode ser nulo ou vazio.");
+            return 0;
+        }
+
+        if (inicioEstaVazio()) {
+            return 0;
+        }
+
+        int contador = 0;
+
+        No aux = this.inicio;
+        while (aux != null) {
+            if (aux.getConteudo().equalsIgnoreCase(elemento)) {
+                contador++;
+            }
+            aux = aux.getProx();
+        }
+
+        return contador;
     }
 
     @Override
     public int substituir(String antigo, String novo) {
-        return 0;
+
+        if (antigo == null || antigo.trim().isEmpty()) {
+            System.out.println("Elemento antigo não pode ser nulo ou vazio.");
+            return 0;
+        }
+
+        if (novo == null || novo.trim().isEmpty()) {
+            System.out.println("Novo elemento não pode ser nulo ou vazio.");
+            return 0;
+        }
+
+        if (inicioEstaVazio()) {
+            return 0;
+        }
+
+        int substituicoes = 0;
+        No aux = this.inicio;
+
+        while (aux != null) {
+            if (aux.getConteudo().equalsIgnoreCase(antigo)) {
+                aux.setConteudo(novo);
+                substituicoes++;
+            }
+            aux = aux.getProx();
+        }
+
+        return substituicoes;
     }
 }

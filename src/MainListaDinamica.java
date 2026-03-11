@@ -3,6 +3,8 @@ public class MainListaDinamica {
 
         String elementos[] = {"a", "b"};
 
+        // Forçar testes dos .equals em lista dinamica por conta do nullpointerexeption
+
         ListaDinamica listaDinamica = new ListaDinamica();
         listaDinamica.adicionarElemento("Arroz");
         listaDinamica.adicionarElemento("Feijão");
@@ -24,8 +26,18 @@ public class MainListaDinamica {
         System.out.println("==================================================");
         listaDinamica.removerPorIndice(2);
         System.out.println("==================================================");
-        listaDinamica.limpar();
         listaDinamica.exibir();
         System.out.println("==================================================");
+        System.out.println(listaDinamica.ultimoIndiceDe("cebola"));
+        System.out.println( listaDinamica.ultimoIndiceDe("cebolaaaaaaaa"));
+        System.out.println("==================================================");
+        System.out.println(listaDinamica.contarOcorrencias("cebola"));
+        System.out.println(listaDinamica.contarOcorrencias("aaaaaaaaa"));
+        System.out.println("==================================================");
+        System.out.println(listaDinamica.substituir("cebola", "arroz"));
+        System.out.println(listaDinamica.substituir("aaaaa", "arroz"));
+        System.out.println(listaDinamica.substituir("cebola", "1"));
+        listaDinamica.limpar();
+        listaDinamica.exibir();
     }
 }
