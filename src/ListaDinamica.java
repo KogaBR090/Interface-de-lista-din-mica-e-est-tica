@@ -243,7 +243,8 @@ public class ListaDinamica implements ListaOperacoes {
 
     @Override
     public void limpar() {
-
+        this.inicio.setProx(null);
+        this.inicio.setConteudo(null);
     }
 
     @Override

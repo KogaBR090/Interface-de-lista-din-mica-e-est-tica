@@ -35,5 +35,8 @@ public class MainListaDinamica {
         System.out.println("==================================================");
         listaDinamica.removerPorIndice(2);
         System.out.println("==================================================");
+        listaDinamica.limpar();
+        listaDinamica.exibir();
+        System.out.println("==================================================");
     }
 }
